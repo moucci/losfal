@@ -1,6 +1,263 @@
 @import "setting";
 
-.loader{
+body {
+  padding: 0;
+  margin: 0;
+  background-color: black;
+}
 
+* {
+  scroll-behavior: smooth;
+  box-sizing: border-box;
+}
+
+.loader {
+  position: absolute;
+  background-color: black;
+  height: 100vh;
+  width: 100vw;
+  z-index: 222;
+  top: 0;
+  left: 0;
+  transition: opacity 0.5s ease-out;
+
+  img {
+    height: 40%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) rotate(180deg);
+    animation-name: animateLogo;
+    animation-duration: 7s;
+    animation-fill-mode: forwards;
+  }
+
+  .logo-txt {
+    position: absolute;
+    top: 70%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    //border: 1px solid white;
+    color: white;
+    font-family: Inter;
+    opacity: 0;
+    animation: displayOn 5s;
+    animation-delay: 4s;
+    animation-fill-mode: forwards;
+
+
+    h1 {
+      font-size: 24px;
+      text-align: center;
+      margin: 0;
+      font-weight: 100;
+
+    }
+
+    h2 {
+      font-size: 65px;
+      text-align: center;
+      margin: 10px;
+      font-weight: 100;
+
+    }
+
+  }
+
+  .logo-txt-b {
+    font-family: Inter, sans-serif;
+    font-size: 24px;
+    color: white;
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    span {
+      opacity: 0;
+      transition: opacity 0.5s ease-in-out;
+    }
+  }
+
+  @keyframes displayOn {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+  @keyframes animateLogo {
+    0% {
+      //top: 50%;
+      //left: 50%;
+      //transform: translate(-50% , -50%) rotate(90deg) ;
+    }
+    10% {
+      transform: translate(-50%, -50%) rotate(90deg);
+    }
+    20% {
+      transform: translate(-50%, -50%) rotate(0deg);
+    }
+    30% {
+      top: 70%;
+      transform: translate(-50%, -50%) rotate(0deg);
+    }
+    50% {
+      top: 20%;
+      transform: translate(-50%, -50%) rotate(0deg);
+    }
+    100% {
+      top: 40%;
+      transform: translate(-50%, -50%) rotate(0deg);
+    }
+  }
+  @keyframes fade-in-animation {
+    0% {
+      opacity: 0;
+    }
+    20% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+}
+
+header {
+  height: 70px;
+  overflow: hidden;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+  background: radial-gradient(circle, rgba(0, 0, 0, 1) 0%, rgba(86, 19, 172, 0.28) 60%);
+  position: fixed;
+  width: 100%;
+
+  .logo {
+    display: inline-block;
+    width: 50px;
+
+    img {
+      width: 100%;
+    }
+  }
+
+  h1 {
+    color: white;
+    text-align: center;
+
+    span {
+      display: block;
+      font-family: Inter;
+
+      &:nth-of-type(1) {
+        font-size: 15px;
+        font-weight: 100;
+      }
+
+      &:nth-of-type(2) {
+        font-size: 24px;
+        font-weight: 100;
+      }
+    }
+  }
+}
+
+main {
+  display: none;
+  padding-top: 70px;
+
+  section#home-slider {
+    height: 40vh;
+    min-height: 250px;
+    padding: 20px 0;
+
+    h2 {
+      padding-left: 40px;
+    }
+
+    ul {
+      padding-top: 20px;
+
+      display: flex;
+      overflow-x: scroll;
+      gap: 40px;
+      margin-left: 80px;
+      scroll-snap-type: x mandatory;
+      cursor: pointer;
+
+      &::-webkit-scrollbar {
+        display: none;
+      }
+
+      li {
+        width: max-content;
+        scroll-snap-align: start;
+
+        a {
+          img {
+            width: 144px;
+          }
+        }
+
+        .inf {
+          margin-top: 10px;
+
+          span {
+            display: block;
+            text-align: center;
+            font-size: 15px;
+
+          }
+        }
+      }
+    }
+  }
+
+  section#home-items {
+    height: auto;
+    margin-top: 60px;
+
+    h2 {
+      padding-left: 40px;
+    }
+
+    ul {
+      padding-left: 80px;
+      padding-top: 20px;
+
+      li {
+        display: flex;
+        gap: 30px;
+        align-items: center;
+        margin-bottom: 20px;
+
+        a {
+          img {
+            width: 80px;
+          }
+        }
+
+        .inf {
+          line-height: 25px;
+
+          span {
+            display: block;
+            color: white;
+            font-family: Inter, sans-serif;
+            font-weight: 300;
+            font-size: 15px;
+            text-transform: capitalize;
+          }
+        }
+
+      }
+    }
+
+
+  }
 }
 

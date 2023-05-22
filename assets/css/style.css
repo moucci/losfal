@@ -6,5 +6,233 @@
   font-family: Inter;
   src: url("/assets/font/Inter.ttf") format("TrueType");
 }
+/**
+  text with border
+ */
+.text-effect-a {
+  color: white;
+  font-family: Inter, sans-serif;
+  font-size: 20px;
+  font-weight: 300;
+  text-shadow: #5613AC 1px 0px 0px, rgb(86, 19, 172) 0.540302px 0.841471px 0px, rgb(86, 19, 172) -0.416147px 0.909297px 0px, rgb(86, 19, 172) -0.989992px 0.14112px 0px, rgb(86, 19, 172) -0.653644px -0.756802px 0px, rgb(86, 19, 172) 0.283662px -0.958924px 0px, rgb(86, 19, 172) 0.96017px -0.279415px 0px;
+}
+
+.bg-effect-bulle {
+  background: radial-gradient(circle, rgb(0, 0, 0) 0%, rgb(86, 19, 172) 0%, rgb(0, 0, 0) 100%);
+}
+
+body {
+  padding: 0;
+  margin: 0;
+  background-color: black;
+}
+
+* {
+  scroll-behavior: smooth;
+  box-sizing: border-box;
+}
+
+.loader {
+  position: absolute;
+  background-color: black;
+  height: 100vh;
+  width: 100vw;
+  z-index: 222;
+  top: 0;
+  left: 0;
+  transition: opacity 0.5s ease-out;
+}
+.loader img {
+  height: 40%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) rotate(180deg);
+  animation-name: animateLogo;
+  animation-duration: 7s;
+  animation-fill-mode: forwards;
+}
+.loader .logo-txt {
+  position: absolute;
+  top: 70%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: white;
+  font-family: Inter;
+  opacity: 0;
+  animation: displayOn 5s;
+  animation-delay: 4s;
+  animation-fill-mode: forwards;
+}
+.loader .logo-txt h1 {
+  font-size: 24px;
+  text-align: center;
+  margin: 0;
+  font-weight: 100;
+}
+.loader .logo-txt h2 {
+  font-size: 65px;
+  text-align: center;
+  margin: 10px;
+  font-weight: 100;
+}
+.loader .logo-txt-b {
+  font-family: Inter, sans-serif;
+  font-size: 24px;
+  color: white;
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.loader .logo-txt-b span {
+  opacity: 0;
+  transition: opacity 0.5s ease-in-out;
+}
+@keyframes displayOn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+@keyframes animateLogo {
+  10% {
+    transform: translate(-50%, -50%) rotate(90deg);
+  }
+  20% {
+    transform: translate(-50%, -50%) rotate(0deg);
+  }
+  30% {
+    top: 70%;
+    transform: translate(-50%, -50%) rotate(0deg);
+  }
+  50% {
+    top: 20%;
+    transform: translate(-50%, -50%) rotate(0deg);
+  }
+  100% {
+    top: 40%;
+    transform: translate(-50%, -50%) rotate(0deg);
+  }
+}
+@keyframes fade-in-animation {
+  0% {
+    opacity: 0;
+  }
+  20% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+header {
+  height: 70px;
+  overflow: hidden;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+  background: radial-gradient(circle, rgb(0, 0, 0) 0%, rgba(86, 19, 172, 0.28) 60%);
+  position: fixed;
+  width: 100%;
+}
+header .logo {
+  display: inline-block;
+  width: 50px;
+}
+header .logo img {
+  width: 100%;
+}
+header h1 {
+  color: white;
+  text-align: center;
+}
+header h1 span {
+  display: block;
+  font-family: Inter;
+}
+header h1 span:nth-of-type(1) {
+  font-size: 15px;
+  font-weight: 100;
+}
+header h1 span:nth-of-type(2) {
+  font-size: 24px;
+  font-weight: 100;
+}
+
+main {
+  display: none;
+  padding-top: 70px;
+}
+main section#home-slider {
+  height: 40vh;
+  min-height: 250px;
+  padding: 20px 0;
+}
+main section#home-slider h2 {
+  padding-left: 40px;
+}
+main section#home-slider ul {
+  padding-top: 20px;
+  display: flex;
+  overflow-x: scroll;
+  gap: 40px;
+  margin-left: 80px;
+  scroll-snap-type: x mandatory;
+  cursor: pointer;
+}
+main section#home-slider ul::-webkit-scrollbar {
+  display: none;
+}
+main section#home-slider ul li {
+  width: max-content;
+  scroll-snap-align: start;
+}
+main section#home-slider ul li a img {
+  width: 144px;
+}
+main section#home-slider ul li .inf {
+  margin-top: 10px;
+}
+main section#home-slider ul li .inf span {
+  display: block;
+  text-align: center;
+  font-size: 15px;
+}
+main section#home-items {
+  height: auto;
+  margin-top: 60px;
+}
+main section#home-items h2 {
+  padding-left: 40px;
+}
+main section#home-items ul {
+  padding-left: 80px;
+  padding-top: 20px;
+}
+main section#home-items ul li {
+  display: flex;
+  gap: 30px;
+  align-items: center;
+  margin-bottom: 20px;
+}
+main section#home-items ul li a img {
+  width: 80px;
+}
+main section#home-items ul li .inf {
+  line-height: 25px;
+}
+main section#home-items ul li .inf span {
+  display: block;
+  color: white;
+  font-family: Inter, sans-serif;
+  font-weight: 300;
+  font-size: 15px;
+  text-transform: capitalize;
+}
 
 /*# sourceMappingURL=style.css.map */
