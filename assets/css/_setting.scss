@@ -1,11 +1,11 @@
 @font-face {
   font-family: abeatbyKaiRegular ;
-  src: url("/assets/font/abeatbyKaiRegular.otf") format("openType");
+  src: url("../font/abeatbyKaiRegular.otf") format("openType");
 }
 
 @font-face {
   font-family: Inter ;
-  src: url("/assets/font/Inter.ttf") format("TrueType");
+  src: url("../font/Inter.ttf") format("TrueType");
 }
 
 
@@ -26,8 +26,10 @@ $color-violet-2: #9747FF;
 }
 
 .bg-effect-bulle{
-  background: radial-gradient(circle, rgba(0,0,0,1) 0%, rgba(86,19,172,1) 0%, rgba(0,0,0,1) 100%);
-
+  background: radial-gradient(ellipse at center, rgba(0,0,0,1) 0%, rgba(86,19,172,1) 0%, rgba(0,0,0,1) 70%);
 }
 
-
+//class hidden element
+.hide{
+  display: none;
+}

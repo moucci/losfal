@@ -17,6 +17,7 @@
         <span>Music</span>
         <span>LOSFAL</span>
     </h1>
+
     <div class="dot">
         <img src="assets/img/three-dot.svg" alt="connexion">
         <div class="submenu_modal">
@@ -70,53 +71,47 @@
         </div>
     </div>
 </header>
-
-<div class="main-player">
-    <main class="player">
-        <figure>
-            <img src="" alt="">
-            <span class="imgOnLoad"></span>
-            <figcaption>
-                <h1 class=" title text-effect-a"></h1>
-                <article class="hide ">
-                    <img src="https://music.freefakeapi.io/assets/covers/cover29.jpg" alt="">
-                    <div>
-                        <h3 class="name"></h3>
-                        <h2 class="licence"><a  target="_blank" href="">Licence</a></h2>
-                    </div>
-                </article>
-            </figcaption>
-        </figure>
-    </main>
-    <footer class="player-cmd">
-        <div class="cmd">
-            <span class="btn-play"></span>
-            <span class="btn-stop"></span>
-            <span class="btn-random"></span>
-            <span class="btn-like"></span>
-        </div>
-        <div class="line-content" >
-            <div class="line">
-                <div class="time">
-                    <div class="content">
-                        <span class="prev"></span>
-                        <span class="visible">0:00</span>
-                        <span class="next"></span>
-                    </div>
+<main class="home">
+    <section id="home-slider">
+        <h2 class="text-effect-a">Ecoutés récemment</h2>
+        <ul>
+            <li tabindex="0" class="model">
+                <a href="#">
+                    <img  src="assets/img/cover/img-1.jpg" alt="">
+                    <span class="imgOnLoad"></span>
+                </a>
+                <div class="inf ">
+                    <span class="title text-effect-a">la vie est belle</span>
+                    <span class="name text-effect-a">pere noele</span>
                 </div>
-            </div>
-            <span class="duration">--:--</span>
+            </li>
+        </ul>
+    </section>
+    <section id="home-items">
+        <h2 class="text-effect-a">Mes favoris</h2>
+        <ul >
+            <li class="model">
+                <a href="">
+                    <img src="assets/img/cover/img-1.jpg" alt="">
+                    <span class="imgOnLoad"></span>
+
+                </a>
+                <div class="inf">
+                    <span class="title">title</span>
+                    <span class="name">artiste</span>
+                </div>
+            </li>
+        </ul>
+        <div class="loading">
+            <img src="" alt="" srcset="assets/img/icon-loader-music.svg">
         </div>
-    </footer>
-</div>
-<div class="msg-error">
-    <p class="text-effect-a"></p>
-    <a href="home.html" class="text-effect-a">Retour à l'acceuil</a>
-</div>
+    </section>
+</main>
+
+<section class="msg-error"></section>
+
 <div class="form-loader">
     <img src="" alt="" srcset="assets/img/icon-loader-music.svg">
 </div>
-
-
 </body>
 </html>

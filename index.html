@@ -2,159 +2,19 @@
 <html lang="fr">
 <link rel="stylesheet" href="assets/css/style.css">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<script src="assets/js/app.js" defer></script>
+<script src="assets/js/auth.js" defer></script>
 <head>
     <meta charset="UTF-8">
     <title>losfal</title>
 </head>
 <body>
-
-<header>
-    <a class="logo" href="index.html" title="retour à l'acceuil">
-        <img src="assets/img/logo-blanc-1b.svg" alt="retour à l'accueil">
-    </a>
-    <h1>
-        <span>Music</span>
-        <span>LOSFAL</span>
-    </h1>
-
-    <span>
-        <img src="assets/img/icon-login.svg" alt="connexion">
-    </span>
-</header>
-
-<main>
-    <section id="home-slider">
-        <h2 class="text-effect-a">Ecoutés récemment</h2>
-        <ul>
-            <li>
-                <a href="#"><img src="assets/img/cover/img-1.jpg" alt=""></a>
-                <div class="inf bg-effect-bulle">
-                    <span class="title text-effect-a">la vie est belle</span>
-                    <span class="name text-effect-a">pere noele</span>
-                </div>
-            </li>
-            <li>
-                <a href="#"><img src="assets/img/cover/img-1.jpg" alt=""></a>
-                <div class="inf bg-effect-bulle">
-                    <span class="title text-effect-a">la vie est belle</span>
-                    <span class="name text-effect-a">pere noele</span>
-                </div>
-            </li>
-            <li>
-                <a href="#"><img src="assets/img/cover/img-1.jpg" alt=""></a>
-                <div class="inf bg-effect-bulle">
-                    <span class="title text-effect-a">la vie est belle</span>
-                    <span class="name text-effect-a">pere noele</span>
-                </div>
-            </li>
-            <li>
-                <a href="#"><img src="assets/img/cover/img-1.jpg" alt=""></a>
-                <div class="inf bg-effect-bulle">
-                    <span class="title text-effect-a">la vie est belle</span>
-                    <span class="name text-effect-a">pere noele</span>
-                </div>
-            </li>
-            <li>
-                <a href="#"><img src="assets/img/cover/img-1.jpg" alt=""></a>
-                <div class="inf bg-effect-bulle">
-                    <span class="title text-effect-a">la vie est belle</span>
-                    <span class="name text-effect-a">pere noele</span>
-                </div>
-            </li>
-            <li>
-                <a href="#"><img src="assets/img/cover/img-1.jpg" alt=""></a>
-                <div class="inf bg-effect-bulle">
-                    <span class="title text-effect-a">la vie est belle</span>
-                    <span class="name text-effect-a">pere noele</span>
-                </div>
-            </li>
-            <li>
-                <a href="#"><img src="assets/img/cover/img-1.jpg" alt=""></a>
-                <div class="inf bg-effect-bulle">
-                    <span class="title text-effect-a">la vie est belle</span>
-                    <span class="name text-effect-a">pere noele</span>
-                </div>
-            </li>
-            <li>
-                <a href="#"><img src="assets/img/cover/img-1.jpg" alt=""></a>
-                <div class="inf bg-effect-bulle">
-                    <span class="title text-effect-a">la vie est belle</span>
-                    <span class="name text-effect-a">pere noele</span>
-                </div>
-            </li>
-
-
-        </ul>
-    </section>
-    <section id="home-items">
-        <h2 class="text-effect-a">Mes favoris</h2>
-
-        <ul>
-            <li>
-                <a href="">
-                    <img src="assets/img/cover/img-1.jpg" alt="">
-                </a>
-                <div class="inf">
-                    <span class="title">title</span>
-                    <span class="name">artiste</span>
-                </div>
-            </li>
-            <li>
-                <a href="">
-                    <img src="assets/img/cover/img-1.jpg" alt="">
-                </a>
-                <div class="inf">
-                    <span class="title">title</span>
-                    <span class="name">artiste</span>
-                </div>
-            </li>
-            <li>
-                <a href="">
-                    <img src="assets/img/cover/img-1.jpg" alt="">
-                </a>
-                <div class="inf">
-                    <span class="title">title</span>
-                    <span class="name">artiste</span>
-                </div>
-            </li>
-            <li>
-                <a href="">
-                    <img src="assets/img/cover/img-1.jpg" alt="">
-                </a>
-                <div class="inf">
-                    <span class="title">title</span>
-                    <span class="name">artiste</span>
-                </div>
-            </li>
-            <li>
-                <a href="">
-                    <img src="assets/img/cover/img-1.jpg" alt="">
-                </a>
-                <div class="inf">
-                    <span class="title">title</span>
-                    <span class="name">artiste</span>
-                </div>
-            </li>
-            <li>
-                <a href="">
-                    <img src="assets/img/cover/img-1.jpg" alt="">
-                </a>
-                <div class="inf">
-                    <span class="title">title</span>
-                    <span class="name">artiste</span>
-                </div>
-            </li>
-        </ul>
-    </section>
-</main>
 <div style="display: block" class="loader">
-    <img src="assets/img/logo-white.svg" alt="">
-    <div class="logo-txt">
+    <img  src="assets/img/logo-white-final.svg" alt="">
+    <div  class="logo-txt">
         <h1>Music</h1>
         <h2>LOSFAL</h2>
     </div>
-    <div class="logo-txt-b">
+    <div  class="logo-txt-b">
         <span>L</span>
         <span>O</span>
         <span>S</span>
@@ -162,8 +22,102 @@
         <span>A</span>
         <span>L</span>
     </div>
+    <section id="section-auth" class="hide">
+        <form id="form-login" >
+            <h2 class="text-effect-a">Se connecter</h2>
+            <p class="text-effect-a msg-error"></p>
+            <div class="inputGroup">
+                <input type="text" autocomplete="off" value="nav6@hotmail.fr" name="form-email-signin" required
+                       id="form-email-signin">
+                <label for="form-email-signin">E-mail</label>
+            </div>
+            <div class="inputGroup">
+                <input type="password" autocomplete="off" name="form-pass-signin" id="form-pass-signin"
+                       required value="kakou$dddM6566666">
+                <span class="toggle-password"><img src="assets/img/icon-show-pass.svg" alt=""></span>
+                <label for="form-pass-signin">Mot de passe</label>
+            </div>
+            <p>Vous n’avez pas de compte ? <span class="text-effect-a toggle-form">Créer un compte</span></p>
+            <p><span class="text-effect-a toggle-form">Mot de passe oublié</span></p>
+
+            <label class="form-check">
+                <input class="form-checkbox" value="newbie89@hotmail.fr" type="checkbox">
+                Rester connecté
+                <div class="checkmark"></div>
+            </label>
+
+            <div class="btn-container">
+                <button style="margin-top: 25px;" disabled class="form-submit">
+                    <span class="text-effect-a">S'identifier</span>
+                    <div class="success">
+                        <svg xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 29.756 29.756"
+                             style="enable-background:new 0 0 29.756 29.756;" xml:space="preserve">
+                        <path d="M29.049,5.009L28.19,4.151c-0.943-0.945-2.488-0.945-3.434,0L10.172,18.737l-5.175-5.173
+                          c-0.943-0.944-2.489-0.944-3.432,0.001l-0.858,0.857c-0.943,0.944-0.943,2.489,0,3.433l7.744,7.752
+                            c0.944,0.943,2.489,0.943,3.433,0L29.049,8.442C29.991,7.498,29.991,5.953,29.049,5.009z"/>
+                    </svg>
+                    </div>
+                </button>
+            </div>
+
+        </form>
+
+        <form action="" class="hide" id="form-signup">
+            <h2 class="text-effect-a">Inscrivez-vous</h2>
+            <div class="inputGroup">
+                <input type="text" autocomplete="off" value="hola" name="form-name-signup" required
+                       id="form-name-signup">
+                <label for="form-name-signup">Pseudo</label>
+            </div>
+            <div class="inputGroup">
+                <input type="text" autocomplete="off" name="form-email-signup" required
+                       id="form-email-signup" value="newbie89@hotmail.fr">
+                <label for="form-email-signup">E-mail</label>
+            </div>
+            <div class="inputGroup">
+                <input type="password" value="Ufdd@75qqsqsqsqsqsssq" autocomplete="off" name="form-pass-signup"
+                       id="form-pass-signup"
+                       required>
+                <span class="toggle-password"><img src="assets/img/icon-show-pass.svg" alt=""></span>
+                <label for="form-pass-signup">Mot de passe</label>
+                <div class="msg-error-signup hide">
+                    <span class="min">miniscule</span>
+                    <span class="maj">majuscule</span>
+                    <span class="num">Chiffre</span>
+                    <span class="len">16 caractères</span>
+                    <span class="spec">min 1 caractère spécial</span>
+                </div>
+            </div>
+
+            <p>Déja inscrit ? <span class="text-effect-a toggle-form">Connectez vous</span></p>
+
+            <label class="form-check">
+                <input class="form-checkbox" type="checkbox">
+                J'accepte la collecte de mes informations afin de pouvoir être inscrit.
+                <div class="checkmark"></div>
+            </label>
+
+            <div class="btn-container">
+                <button disabledd class="form-submit">
+                    <span class="text-effect-a">S'identifier</span>
+                    <div class="success">
+                        <svg xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 29.756 29.756"
+                             style="enable-background:new 0 0 29.756 29.756;" xml:space="preserve">
+                        <path d="M29.049,5.009L28.19,4.151c-0.943-0.945-2.488-0.945-3.434,0L10.172,18.737l-5.175-5.173
+                          c-0.943-0.944-2.489-0.944-3.432,0.001l-0.858,0.857c-0.943,0.944-0.943,2.489,0,3.433l7.744,7.752
+                            c0.944,0.943,2.489,0.943,3.433,0L29.049,8.442C29.991,7.498,29.991,5.953,29.049,5.009z"/>
+                    </svg>
+                    </div>
+                </button>
+            </div>
+        </form>
+
+        <div class="form-loader">
+            <img src="" alt="" srcset="assets/img/icon-loader-music.svg">
+        </div>
+    </section>
+
+
 </div>
-
-
 </body>
 </html>

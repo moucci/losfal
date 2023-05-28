@@ -1,15 +1,15 @@
 @font-face {
   font-family: abeatbyKaiRegular;
-  src: url("/assets/font/abeatbyKaiRegular.otf") format("openType");
+  src: url("../font/abeatbyKaiRegular.otf") format("openType");
 }
 @font-face {
   font-family: Inter;
-  src: url("/assets/font/Inter.ttf") format("TrueType");
+  src: url("../font/Inter.ttf") format("TrueType");
 }
 /**
   text with border
  */
-.text-effect-a {
+.text-effect-a, .main-player main.player figure figcaption article div h3, .main-player main.player figure figcaption article div h2, .loader #section-auth form .inputGroup .msg-error-signup, .loader #section-auth form .inputGroup input:valid ~ label, .loader .logo-txt.goToTop h2, .loader .logo-txt.goToTop h1 {
   color: white;
   font-family: Inter, sans-serif;
   font-size: 20px;
@@ -17,8 +17,12 @@
   text-shadow: #5613AC 1px 0px 0px, rgb(86, 19, 172) 0.540302px 0.841471px 0px, rgb(86, 19, 172) -0.416147px 0.909297px 0px, rgb(86, 19, 172) -0.989992px 0.14112px 0px, rgb(86, 19, 172) -0.653644px -0.756802px 0px, rgb(86, 19, 172) 0.283662px -0.958924px 0px, rgb(86, 19, 172) 0.96017px -0.279415px 0px;
 }
 
-.bg-effect-bulle {
-  background: radial-gradient(circle, rgb(0, 0, 0) 0%, rgb(86, 19, 172) 0%, rgb(0, 0, 0) 100%);
+.bg-effect-bulle, main.home section#home-slider ul li.snapped .inf {
+  background: radial-gradient(ellipse at center, rgb(0, 0, 0) 0%, rgb(86, 19, 172) 0%, rgb(0, 0, 0) 70%);
+}
+
+.hide {
+  display: none;
 }
 
 body {
@@ -30,6 +34,166 @@ body {
 * {
   scroll-behavior: smooth;
   box-sizing: border-box;
+  font-family: Inter, sans-serif;
+}
+
+header {
+  height: 70px;
+  overflow: hidden;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+  background: radial-gradient(circle, rgb(0, 0, 0) 0%, rgba(86, 19, 172, 0.28) 60%);
+  position: fixed;
+  width: 100%;
+  top: 0;
+  z-index: 10;
+  display: none;
+}
+header .logo {
+  display: inline-block;
+  width: 50px;
+}
+header .logo img {
+  width: 100%;
+}
+header h1 {
+  color: white;
+  text-align: center;
+}
+header h1 span {
+  display: block;
+  font-family: Inter, sans-serif;
+}
+header h1 span:nth-of-type(1) {
+  font-size: 15px;
+  font-weight: 100;
+}
+header h1 span:nth-of-type(2) {
+  font-size: 24px;
+  font-weight: 100;
+}
+header .dot {
+  position: relative;
+  padding: 0 10px;
+  cursor: pointer;
+}
+header .dot .submenu_modal {
+  position: fixed;
+  overflow: hidden;
+  top: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.9);
+  height: 100vh;
+  z-index: 2;
+  width: 100vw;
+  display: none;
+}
+header .dot .submenu_modal ul.submenu {
+  position: fixed;
+  display: flex;
+  gap: 20px;
+  flex-direction: column;
+  top: 50%;
+  height: max-content;
+  background-color: white;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding: 20px;
+  border-radius: 15px;
+  list-style: none;
+  z-index: 1;
+  display: block;
+}
+header .dot .submenu_modal ul.submenu.visible {
+  display: flex;
+}
+header .dot .submenu_modal ul.submenu li {
+  display: flex;
+  align-items: center;
+  width: max-content;
+  gap: 10px;
+}
+header .dot .submenu_modal ul.submenu li a, header .dot .submenu_modal ul.submenu li span {
+  text-decoration: none;
+  color: black;
+  font-family: Inter, sans-serif;
+  font-size: 20px;
+  padding: 5px 0;
+  border-bottom: 2px solid #fff;
+  cursor: pointer;
+}
+header .dot .submenu_modal ul.submenu li a:active, header .dot .submenu_modal ul.submenu li span:active {
+  border-bottom: 2px solid #000;
+}
+header .dot .submenu_modal ul.submenu li:before {
+  content: "";
+  width: 30px;
+  height: 30px;
+  display: inline-block;
+  border-radius: 50%;
+  box-shadow: -3px 5px 5px 0px rgba(0, 0, 0, 0.68);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 50%;
+  transition: box-shadow 0.3s ease-in-out;
+}
+header .dot .submenu_modal ul.submenu li:nth-of-type(1):before {
+  background-image: url("../img/icon-man-music.svg");
+}
+header .dot .submenu_modal ul.submenu li:nth-of-type(2):before {
+  background-image: url("../img/icon-note-music.svg");
+}
+header .dot .submenu_modal ul.submenu li:nth-of-type(3):before {
+  background-image: url("../img/icon-like-black.svg");
+}
+header .dot .submenu_modal ul.submenu li:nth-of-type(4):before {
+  background-image: url("../img/icon-logout.svg");
+  background-size: 110%;
+}
+header .dot .submenu_modal ul.list {
+  list-style: none;
+  display: none;
+}
+header .dot .submenu_modal ul.list li {
+  font-size: 20px;
+}
+header .dot .submenu_modal ul.list li h2 {
+  text-align: center;
+}
+header .dot .submenu_modal ul.list li a {
+  text-decoration: none;
+  line-height: 30px;
+  font-size: 16px;
+}
+header .dot .submenu_modal .btn-prev {
+  display: none;
+  width: 40px;
+  height: 40px;
+  margin: 20px;
+  position: absolute;
+  cursor: pointer;
+}
+header .dot .submenu_modal .btn-prev:active {
+  width: 45px;
+  height: 45px;
+}
+header .dot .submenu_modal .btn-close {
+  display: block;
+  width: 40px;
+  height: 40px;
+  margin: 20px;
+  position: absolute;
+  right: 0;
+  cursor: pointer;
+}
+header .dot .submenu_modal .btn-close img {
+  width: 100%;
+}
+header .dot .submenu_modal .btn-close:active {
+  width: 45px;
+  height: 45px;
 }
 
 .loader {
@@ -42,8 +206,8 @@ body {
   left: 0;
   transition: opacity 0.5s ease-out;
 }
-.loader img {
-  height: 40%;
+.loader > img {
+  height: 30%;
   position: absolute;
   top: 50%;
   left: 50%;
@@ -52,13 +216,20 @@ body {
   animation-duration: 7s;
   animation-fill-mode: forwards;
 }
+.loader > img.animateToTop {
+  animation-name: imgToTop;
+  animation-duration: 1s;
+  animation-fill-mode: forwards;
+  transform: translate(-50%, -50%) rotate(0deg);
+  filter: drop-shadow(0 0 40px #5613AC);
+}
 .loader .logo-txt {
   position: absolute;
   top: 70%;
   left: 50%;
   transform: translate(-50%, -50%);
   color: white;
-  font-family: Inter;
+  font-family: Inter, sans-serif;
   opacity: 0;
   animation: displayOn 5s;
   animation-delay: 4s;
@@ -76,12 +247,28 @@ body {
   margin: 10px;
   font-weight: 100;
 }
+.loader .logo-txt.goToTop {
+  animation-name: txtLogoToTop !important;
+  animation-delay: 0s;
+  animation-duration: 1s !important;
+  animation-fill-mode: forwards;
+  transform: translate(-50%, -50%);
+  opacity: 1 !important;
+}
+.loader .logo-txt.goToTop h1 {
+  font-size: 16px;
+  transition: font-size 1s linear;
+}
+.loader .logo-txt.goToTop h2 {
+  font-size: 40px;
+  transition: font-size 1s linear;
+}
 .loader .logo-txt-b {
   font-family: Inter, sans-serif;
   font-size: 24px;
   color: white;
   position: absolute;
-  bottom: 20px;
+  bottom: 5%;
   left: 50%;
   transform: translate(-50%, -50%);
 }
@@ -128,111 +315,742 @@ body {
     opacity: 1;
   }
 }
-
-header {
-  height: 70px;
-  overflow: hidden;
+@keyframes imgToTop {
+  0% {
+    top: 40%;
+    left: 50%;
+  }
+  100% {
+    height: 15%;
+    top: 10%;
+    left: 13%;
+  }
+}
+@keyframes txtLogoToTop {
+  0% {
+    top: 70%;
+    left: 50%;
+  }
+  100% {
+    top: 10%;
+    left: 50%;
+  }
+}
+.loader #section-auth {
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
-  padding: 10px;
-  background: radial-gradient(circle, rgb(0, 0, 0) 0%, rgba(86, 19, 172, 0.28) 60%);
-  position: fixed;
+  gap: 30px;
+  margin: 0 auto;
+  position: absolute;
+  top: 20%;
+  width: 100vw;
+  transition: opacity 2s linear;
+}
+.loader #section-auth.hide {
+  display: none;
+}
+.loader #section-auth form {
+  width: 70%;
+}
+.loader #section-auth form.hide {
+  display: none;
+}
+.loader #section-auth form h2 {
+  margin-bottom: 60px;
+  font-size: 18px;
+  font-weight: bold;
+  color: white;
+  text-align: center;
+  text-transform: uppercase;
+  opacity: 0.9;
+}
+.loader #section-auth form span.text-effect-a, .loader #section-auth form .inputGroup span.msg-error-signup {
+  font-size: 12px;
+  cursor: pointer;
+}
+.loader #section-auth form .msg-error {
+  margin: -40px 0 60px;
+  font-size: 16px;
+  display: none;
+}
+.loader #section-auth form .msg-error.text-effect-a, .loader #section-auth form .main-player main.player figure figcaption article div h3.msg-error, .main-player main.player figure figcaption article div .loader #section-auth form h3.msg-error, .loader #section-auth form .main-player main.player figure figcaption article div h2.msg-error, .main-player main.player figure figcaption article div .loader #section-auth form h2.msg-error, .loader #section-auth form .inputGroup .msg-error.msg-error-signup, .loader #section-auth form .inputGroup input:valid ~ label.msg-error, .loader #section-auth form .logo-txt.goToTop h1.msg-error, .loader .logo-txt.goToTop #section-auth form h1.msg-error, .loader #section-auth form .logo-txt.goToTop h2.msg-error, .loader .logo-txt.goToTop #section-auth form h2.msg-error {
+  text-shadow: red 1px 0px 0px, red 0.540302px 0.841471px 0px, red -0.416147px 0.909297px 0px, red -0.989992px 0.14112px 0px, red -0.653644px -0.756802px 0px, red 0.283662px -0.958924px 0px, red 0.96017px -0.279415px 0px;
+}
+.loader #section-auth form .inputGroup {
+  max-width: 100%;
+  position: relative;
+}
+.loader #section-auth form .inputGroup:not(:nth-last-of-type(2)) {
+  margin: 1em 0 45px 0;
+}
+.loader #section-auth form .inputGroup:nth-last-of-type(2) {
+  margin: 1em 0 20px 0;
+}
+.loader #section-auth form .inputGroup label {
+  font-size: 100%;
+  position: absolute;
+  left: 0;
+  top: 4px;
+  padding: 0.8em;
+  margin-left: 0.5em;
+  pointer-events: none;
+  transition: all 0.3s ease;
+  color: white;
+  font-family: Inter, sans-serif;
+}
+.loader #section-auth form .inputGroup input:valid ~ label {
+  transform: translateY(-45PX) scale(1.2);
+  margin: 0em 0em 0em 0em;
+  padding: 5px 25px;
+  color: white;
+  font-weight: bold;
+  border-radius: 3px;
+  border-bottom: none;
+  border-top: none;
+  font-size: 14px;
+}
+.loader #section-auth form .inputGroup :is(input:focus, input:valid) {
+  border-color: rgb(150, 150, 200);
+  border-top-right-radius: 0px;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+  transition: border-radius 0.2s linear;
+}
+.loader #section-auth form .inputGroup input {
+  font-size: 100%;
+  outline: none;
+  border: 1px solid #974ef6;
+  border: none;
+  box-shadow: 0px 0px 10px 1px #5613AC;
+  background-color: transparent;
+  border-radius: 20px;
   width: 100%;
+  font-family: Inter, sans-serif;
+  color: white;
+  margin-bottom: 10px;
+  padding: 15px 20px;
 }
-header .logo {
-  display: inline-block;
-  width: 50px;
+.loader #section-auth form .inputGroup input#form-pass-signin, .loader #section-auth form .inputGroup input#form-pass-signup {
+  padding: 15px 35px 15px 20px;
 }
-header .logo img {
-  width: 100%;
+.loader #section-auth form .inputGroup .toggle-password {
+  width: 25px;
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  top: 15px;
+  right: 10px;
 }
-header h1 {
+.loader #section-auth form .inputGroup .toggle-password img {
+  margin: auto;
+  display: block;
+}
+.loader #section-auth form .inputGroup .msg-error-signup {
+  color: white;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  margin-top: 15px;
+  font-size: 12px;
+}
+.loader #section-auth form .inputGroup .msg-error-signup.hide {
+  display: none;
+}
+.loader #section-auth form .inputGroup .msg-error-signup span {
+  text-shadow: #5613AC 1px 0px 0px, red 0.540302px 0.841471px 0px, red -0.416147px 0.909297px 0px, red -0.989992px 0.14112px 0px, red -0.653644px -0.756802px 0px, red 0.283662px -0.958924px 0px, red 0.96017px -0.279415px 0px;
+}
+.loader #section-auth form .inputGroup .msg-error-signup span.success {
+  text-shadow: #5613AC 1px 0px 0px, green 0.540302px 0.841471px 0px, green -0.416147px 0.909297px 0px, green -0.989992px 0.14112px 0px, green -0.653644px -0.756802px 0px, green 0.283662px -0.958924px 0px, green 0.96017px -0.279415px 0px;
+}
+.loader #section-auth form .inputGroup .msg-error-signup span:not(:last-child) {
+  border-right: 1px solid white;
+  padding-right: 5px;
+  flex: 0 2 auto;
+}
+.loader #section-auth form .form-check {
+  position: relative;
+  cursor: pointer;
+  user-select: none;
+  display: none;
+  justify-content: center;
+  flex-direction: row-reverse;
+  align-items: center;
+  gap: 10px;
+  font-size: 12px;
+  color: wheat;
+}
+.loader #section-auth form .form-check:nth-last-of-type(0) {
+  justify-content: start;
+}
+.loader #section-auth form .form-check input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+}
+.loader #section-auth form .form-check label {
+  display: flex;
+  font-size: 0.8em;
+  align-items: center;
+}
+.loader #section-auth form .form-check .checkmark {
+  position: relative;
+  top: 0;
+  left: 0;
+  height: 25px;
+  background: #5613AC;
+  border-radius: 7px;
+  flex: 0 0 25px;
+}
+.loader #section-auth form .form-check .checkmark:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+.loader #section-auth form .form-check input:checked ~ .checkmark {
+  background-image: linear-gradient(#255CD2, #1D52C1);
+}
+.loader #section-auth form .form-check input:checked ~ .checkmark:after {
+  display: block;
+}
+.loader #section-auth form .form-check .checkmark:after {
+  left: 8px;
+  top: 5px;
+  width: 8px;
+  height: 10px;
+  border: solid white;
+  border-width: 0 0.15em 0.15em 0;
+  transform: rotate(45deg);
+}
+.loader #section-auth form p {
+  font-size: 12px;
   color: white;
   text-align: center;
 }
-header h1 span {
+.loader #section-auth form .btn-container {
+  position: relative;
+  margin: 45px auto;
+}
+.loader #section-auth form .btn-container button {
   display: block;
-  font-family: Inter;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 170px;
+  line-height: 1;
+  font-size: 18px;
+  font-weight: bold;
+  letter-spacing: 1px;
+  border: none;
+  background: #000;
+  cursor: pointer;
+  overflow: hidden;
+  padding: 15px 20px;
+  transition: all 0.5s;
+  box-shadow: 0px 0px 10px 1px red;
+  border-radius: 77px 150px 119px 92px/36px 56px 20px 52px;
 }
-header h1 span:nth-of-type(1) {
-  font-size: 15px;
-  font-weight: 100;
+.loader #section-auth form .btn-container button.active {
+  border: 3px solid blueviolet;
+  box-shadow: 0px 0px 10px 1px #5613AC;
+  color: blueviolet;
+  border-radius: 50px;
 }
-header h1 span:nth-of-type(2) {
-  font-size: 24px;
-  font-weight: 100;
+.loader #section-auth form .btn-container button.active .text-effect-a, .loader #section-auth form .btn-container button.active .main-player main.player figure figcaption article div h3, .main-player main.player figure figcaption article div .loader #section-auth form .btn-container button.active h3, .loader #section-auth form .btn-container button.active .main-player main.player figure figcaption article div h2, .main-player main.player figure figcaption article div .loader #section-auth form .btn-container button.active h2, .loader #section-auth form .btn-container button.active .logo-txt.goToTop h1, .loader .logo-txt.goToTop #section-auth form .btn-container button.active h1, .loader #section-auth form .btn-container button.active .logo-txt.goToTop h2, .loader .logo-txt.goToTop #section-auth form .btn-container button.active h2, .loader #section-auth form .btn-container button.active .inputGroup input:valid ~ label, .loader #section-auth form .inputGroup .btn-container button.active input:valid ~ label, .loader #section-auth form .btn-container button.active .inputGroup .msg-error-signup, .loader #section-auth form .inputGroup .btn-container button.active .msg-error-signup {
+  opacity: 1;
+  text-shadow: #5613AC 1px 0px 0px, rgb(86, 19, 172) 0.540302px 0.841471px 0px, rgb(86, 19, 172) -0.416147px 0.909297px 0px, rgb(86, 19, 172) -0.989992px 0.14112px 0px, rgb(86, 19, 172) -0.653644px -0.756802px 0px, rgb(86, 19, 172) 0.283662px -0.958924px 0px, rgb(86, 19, 172) 0.96017px -0.279415px 0px !important;
 }
-
-main {
+.loader #section-auth form .btn-container button:hover {
+  background: #0c0c0c;
+}
+.loader #section-auth form .btn-container button span {
+  opacity: 0.5;
+  visibility: visible;
+  transition: all 0.6s;
+}
+.loader #section-auth form .btn-container button span.text-effect-a, .loader #section-auth form .btn-container button .inputGroup span.msg-error-signup, .loader #section-auth form .inputGroup .btn-container button span.msg-error-signup {
+  font-size: 20px;
+  text-shadow: red 1px 0px 0px, red 0.540302px 0.841471px 0px, red -0.416147px 0.909297px 0px, red -0.989992px 0.14112px 0px, red -0.653644px -0.756802px 0px, red 0.283662px -0.958924px 0px, red 0.96017px -0.279415px 0px;
+}
+.loader #section-auth form .btn-container button .success {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: #fff;
+  border-radius: 50%;
+  z-index: 1;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.35s;
+}
+.loader #section-auth form .btn-container button .success svg {
+  width: 20px;
+  height: 20px;
+  fill: yellowgreen;
+  transform-origin: 50% 50%;
+  transform: translateY(-50%) rotate(0deg) scale(0);
+  transition: all 0.35s;
+}
+.loader #section-auth form .btn-container button.is_active {
+  width: 40px;
+  height: 40px;
+}
+.loader #section-auth form .btn-container button.is_active .success {
+  opacity: 1;
+  visibility: visible;
+}
+.loader #section-auth form .btn-container button.is_active .success svg {
+  margin-top: 50%;
+  transform: translateY(-50%) rotate(720deg) scale(1);
+}
+.loader #section-auth form .btn-container button.is_active span {
+  opacity: 0;
+  visibility: hidden;
+}
+main.home {
   display: none;
   padding-top: 70px;
 }
-main section#home-slider {
+main.home section#home-slider {
   height: 40vh;
   min-height: 250px;
   padding: 20px 0;
 }
-main section#home-slider h2 {
+main.home section#home-slider h2 {
   padding-left: 40px;
 }
-main section#home-slider ul {
+main.home section#home-slider ul {
   padding-top: 20px;
+  padding-right: 20%;
   display: flex;
   overflow-x: scroll;
   gap: 40px;
   margin-left: 80px;
   scroll-snap-type: x mandatory;
   cursor: pointer;
+  align-items: center;
 }
-main section#home-slider ul::-webkit-scrollbar {
+main.home section#home-slider ul::-webkit-scrollbar {
   display: none;
 }
-main section#home-slider ul li {
+main.home section#home-slider ul li {
   width: max-content;
   scroll-snap-align: start;
+  padding: 0 15px;
 }
-main section#home-slider ul li a img {
+main.home section#home-slider ul li a {
+  position: relative;
+  display: block;
   width: 144px;
+  height: 144px;
+  transition: border-radius 0.2s linear;
+  box-shadow: 0 0 20px 0 red;
+  overflow: hidden;
+  border-radius: 5px;
 }
-main section#home-slider ul li .inf {
+main.home section#home-slider ul li a img {
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+}
+main.home section#home-slider ul li .inf {
   margin-top: 10px;
 }
-main section#home-slider ul li .inf span {
+main.home section#home-slider ul li .inf span {
   display: block;
   text-align: center;
   font-size: 15px;
 }
-main section#home-items {
+main.home section#home-slider ul li.snapped a {
+  box-shadow: 0 0 20px 0 #5613AC;
+  border-radius: 10px;
+}
+main.home section#home-items {
   height: auto;
   margin-top: 60px;
+  position: relative;
 }
-main section#home-items h2 {
+main.home section#home-items h2 {
   padding-left: 40px;
 }
-main section#home-items ul {
+main.home section#home-items ul {
   padding-left: 80px;
   padding-top: 20px;
+  display: none;
 }
-main section#home-items ul li {
+main.home section#home-items ul li {
   display: flex;
   gap: 30px;
   align-items: center;
   margin-bottom: 20px;
 }
-main section#home-items ul li a img {
+main.home section#home-items ul li a {
+  position: relative;
+  display: block;
   width: 80px;
+  height: 80px;
 }
-main section#home-items ul li .inf {
+main.home section#home-items ul li a img {
+  width: 100%;
+}
+main.home section#home-items ul li .inf {
   line-height: 25px;
 }
-main section#home-items ul li .inf span {
+main.home section#home-items ul li .inf span {
   display: block;
   color: white;
   font-family: Inter, sans-serif;
   font-weight: 300;
   font-size: 15px;
   text-transform: capitalize;
+}
+main.home section#home-items .loading {
+  width: 100px;
+  height: 50px;
+  position: absolute;
+  left: 50%;
+  top: 60px;
+  transform: translateX(-50%);
+  opacity: 0.2;
+}
+main.home section#home-items .loading img {
+  width: 100%;
+}
+main.home section#home-items p {
+  text-align: center;
+  padding: 15px 50px;
+  border: 1px solid;
+  width: max-content;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  top: 70px;
+  border-radius: 50px;
+  box-shadow: 0px 0px 10px 1px #5613AC;
+  border: none;
+}
+
+.main-player {
+  display: none;
+}
+.main-player main.player {
+  padding-top: 90px;
+  max-width: 460px;
+  margin: 0 auto;
+  height: 70vh;
+}
+.main-player main.player figure {
+  position: relative;
+  height: 100%;
+  margin: 0 auto;
+  width: 70%;
+  overflow: hidden;
+}
+.main-player main.player figure > img {
+  height: 60%;
+  width: auto;
+  position: absolute;
+  /* top: 10px; */
+  left: 50%;
+  /* transform: translate(-50%, -5px); */
+  transform: translateX(-50%);
+}
+.main-player main.player figure figcaption {
+  overflow: hidden;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+}
+.main-player main.player figure figcaption > .text-effect-a, .main-player main.player figure figcaption article div figcaption > h3, .main-player main.player figure figcaption article div figcaption > h2, .main-player main.player figure .loader .logo-txt.goToTop figcaption > h1, .loader .logo-txt.goToTop .main-player main.player figure figcaption > h1, .main-player main.player figure .loader .logo-txt.goToTop figcaption > h2, .loader .logo-txt.goToTop .main-player main.player figure figcaption > h2, .main-player main.player figure .loader #section-auth form .inputGroup figcaption > input:valid ~ label, .loader #section-auth form .inputGroup .main-player main.player figure figcaption > input:valid ~ label, .main-player main.player figure .loader #section-auth form .inputGroup figcaption > .msg-error-signup, .loader #section-auth form .inputGroup .main-player main.player figure figcaption > .msg-error-signup {
+  text-transform: capitalize;
+  white-space: nowrap;
+  margin: 20px;
+  animation: defilement 10s linear infinite;
+}
+@keyframes defilement {
+  0% {
+    transform: translateX(110%);
+  }
+  100% {
+    transform: translateX(-110%);
+  }
+}
+.main-player main.player figure figcaption article {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  box-shadow: 0px 0 20px 0px #5613AC;
+  width: 90%;
+  /* padding: 0; */
+  border-radius: 60px;
+  margin: 10px auto;
+  padding-right: 10px;
+}
+.main-player main.player figure figcaption article.playAnimation {
+  animation: boom 0.4s linear infinite;
+}
+@keyframes boom {
+  0% {
+    box-shadow: 0px 0px 3px 0px #5613AC;
+  }
+  100% {
+    box-shadow: 0px 0 20px 0px #5613AC;
+  }
+}
+.main-player main.player figure figcaption article img {
+  width: 60px;
+  border-radius: 50%;
+  box-shadow: 0px 0px 30px 1px #5613AC;
+  transition: all 2s linear;
+}
+.main-player main.player figure figcaption article div h2 {
+  color: white;
+  font-family: Inter, sans-serif;
+  font-size: 12px;
+  font-weight: 300;
+  text-align: center;
+  transition: all 2s linear;
+}
+.main-player main.player figure figcaption article div h2 a {
+  text-decoration: none;
+  color: white;
+}
+.main-player main.player figure figcaption article div h3 {
+  color: white;
+  text-align: center;
+  font-family: Inter, sans-serif;
+  font-size: 20px;
+  text-transform: capitalize;
+  font-weight: 300;
+  transition: all 2s linear;
+}
+.main-player footer.player-cmd {
+  position: fixed;
+  bottom: 20px;
+  width: 100%;
+}
+.main-player footer.player-cmd .cmd {
+  display: flex;
+  justify-content: space-around;
+}
+.main-player footer.player-cmd .cmd span {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+}
+.main-player footer.player-cmd .cmd span.btn-play {
+  background-image: url("../img/icon-btn-play.svg");
+}
+.main-player footer.player-cmd .cmd span.btn-play.pause {
+  background-image: url("../img/icon-pause.svg");
+}
+.main-player footer.player-cmd .cmd span.btn-stop {
+  background-image: url("../img/icon-stop.svg");
+}
+.main-player footer.player-cmd .cmd span.btn-stop.stop {
+  background-image: url("../img/icon-stoped.svg");
+}
+.main-player footer.player-cmd .cmd span.btn-random {
+  background-image: url("../img/icon-random.svg");
+}
+.main-player footer.player-cmd .cmd span.btn-random.random {
+  background-image: url("../img/icon-random-c.svg");
+}
+.main-player footer.player-cmd .cmd span.btn-like {
+  background-image: url("../img/icon-btn-like.svg");
+}
+.main-player footer.player-cmd .cmd span.btn-like.liked {
+  background-image: url("../img/icon-btn-liked.svg");
+  background-size: 70px;
+  background-position: center;
+}
+.main-player footer.player-cmd .line-content {
+  padding: 40px 0;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+.main-player footer.player-cmd .line-content .line {
+  width: 90%;
+  margin: 0 auto;
+  height: 10px;
+  border-radius: 5px;
+  background-color: white;
+  position: relative;
+}
+.main-player footer.player-cmd .line-content .line .time {
+  display: inline-block;
+  height: 30px;
+  line-height: 30px;
+  position: absolute;
+  top: -10px;
+  font-size: 15px;
+  font-family: Inter, sans-serif;
+  color: white;
+  cursor: pointer;
+  transition: left 0.2s linear;
+  animation-fill-mode: forwards;
+  background-color: #5613AC;
+  border-radius: 16px;
+  width: 50px;
+}
+.main-player footer.player-cmd .line-content .line .time .content {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  height: 24px;
+  align-items: center;
+}
+.main-player footer.player-cmd .line-content .line .time .content .visible, .main-player footer.player-cmd .line-content .line .time .content .next, .main-player footer.player-cmd .line-content .line .time .content .prev {
+  position: absolute;
+  display: block;
+  padding: 0 5px;
+  transition: top 1.2s linear;
+  animation-fill-mode: forwards;
+  top: 0;
+  width: 40px;
+}
+.main-player footer.player-cmd .line-content .line .time .content .prev {
+  top: -24px;
+}
+.main-player footer.player-cmd .line-content .line .time .content .visible {
+  top: 0;
+}
+.main-player footer.player-cmd .line-content .line .time .content .next {
+  top: 24px;
+}
+.main-player footer.player-cmd .line-content .duration {
+  color: white;
+  position: absolute;
+  right: 6%;
+  bottom: 5px;
+  font-weight: bold;
+}
+
+main.listing {
+  padding: 70px 0;
+}
+main.listing h1.text-effect-a, main.listing .loader .logo-txt.goToTop h1, .loader .logo-txt.goToTop main.listing h1, main.listing .loader #section-auth form .inputGroup h1.msg-error-signup, .loader #section-auth form .inputGroup main.listing h1.msg-error-signup {
+  font-size: 30px;
+  text-align: center;
+}
+main.listing .items article {
+  padding: 5px 20px;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  color: white;
+  font-family: Inter, sans-serif;
+}
+main.listing .items article picture {
+  width: 80px;
+}
+main.listing .items article picture img {
+  width: 100%;
+}
+main.listing .items article .head {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 65px;
+  width: 100%;
+}
+main.listing .items article .head .title {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+main.listing .items article .head .title h2 {
+  margin: 0;
+  font-size: 15px;
+  font-weight: 300;
+}
+main.listing .items article .head .title .duration {
+  font-size: 12px;
+}
+main.listing .items article .head .info h3 {
+  font-size: 15px;
+  font-weight: 300;
+  text-transform: capitalize;
+  margin: 0;
+}
+main.listing .items article .head .info a {
+  text-decoration: none;
+  color: white;
+  font-size: 10px;
+  display: block;
+}
+main.listing .items article .head .info .cat {
+  display: block;
+  font-size: 10px;
+}
+
+.form-loader, .loader #section-auth .form-loader {
+  display: none;
+  text-align: center;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.form-loader img, .loader #section-auth .form-loader img {
+  object-fit: cover;
+}
+
+.imgOnLoad {
+  background-image: url(../img/icon-loader-music.svg);
+  position: absolute;
+  /* top: 0; */
+  /* left: 0; */
+  display: block;
+  width: 100%;
+  height: 100%;
+  background-size: 100%;
+  opacity: 0.2;
+  bottom: 10%;
+  background-repeat: no-repeat;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-position: center;
+}
+
+img {
+  transition: all 0.6s cubic-bezier(1, -0.06, 1, 1);
+}
+
+.msg-error {
+  display: none;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  width: 100%;
+  padding: 10px;
+}
+.msg-error .text-effect-a, .msg-error .loader .logo-txt.goToTop h1, .loader .logo-txt.goToTop .msg-error h1, .msg-error .loader .logo-txt.goToTop h2, .loader .logo-txt.goToTop .msg-error h2, .msg-error .loader #section-auth form .inputGroup input:valid ~ label, .loader #section-auth form .inputGroup .msg-error input:valid ~ label, .msg-error .loader #section-auth form .inputGroup .msg-error-signup, .loader #section-auth form .inputGroup .msg-error .msg-error-signup, .msg-error .main-player main.player figure figcaption article div h2, .main-player main.player figure figcaption article div .msg-error h2, .msg-error .main-player main.player figure figcaption article div h3, .main-player main.player figure figcaption article div .msg-error h3 {
+  text-shadow: red 1px 0px 0px, red 0.540302px 0.841471px 0px, red -0.416147px 0.909297px 0px, red -0.989992px 0.14112px 0px, red -0.653644px -0.756802px 0px, red 0.283662px -0.958924px 0px, red 0.96017px -0.279415px 0px;
+  text-decoration: none;
+}
+.msg-error a {
+  font-size: 20px;
+  box-shadow: 0px 0px 10px 1px red;
+  padding: 25px;
+  margin: 75px auto;
+  display: block;
+  width: max-content;
+  border-radius: 40px;
 }
 
 /*# sourceMappingURL=style.css.map */
