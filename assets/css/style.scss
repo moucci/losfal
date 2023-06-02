@@ -815,7 +815,7 @@ main.home {
         padding: 0 15px;
 
 
-        a {
+         & > a {
           position: relative;
           display: block;
           width: 144px;
@@ -837,6 +837,10 @@ main.home {
         .inf {
           margin-top: 10px;
 
+          a{
+            text-decoration: none;
+            color: white;
+          }
           span {
             display: block;
             text-align: center;
@@ -846,7 +850,7 @@ main.home {
 
         &.snapped {
 
-          a {
+          & > a {
             box-shadow: 0 0 25px 0 $color-violet;
             border-radius: 10px;
           }
@@ -879,7 +883,7 @@ main.home {
         align-items: center;
         margin-bottom: 20px;
 
-        a {
+       & >  a {
           position: relative;
           display: block;
           width: 80px;
@@ -892,6 +896,11 @@ main.home {
 
         .inf {
           line-height: 25px;
+
+          a{
+            text-decoration: none;
+            color: white;
+          }
 
           span {
             display: block;
@@ -1097,7 +1106,7 @@ main.home {
         &.btn-random {
           background-image: url("../img/icon-random.svg");
 
-          &.random {
+          &:active {
             background-image: url("../img/icon-random-c.svg");
           }
         }
@@ -1175,6 +1184,8 @@ main.home {
 
             .visible {
               top: 0;
+              margin: 0 auto;
+              text-align: center;
             }
 
             .next {
@@ -1258,6 +1269,7 @@ main.listing {
             font-weight: 300;
             text-transform: capitalize;
             margin: 0;
+            padding: 5px 0;
           }
 
           a {
@@ -1265,6 +1277,26 @@ main.listing {
             color: white;
             font-size: 10px;
             display: block;
+          }
+
+          .link-cat{
+            display: inline-block;
+            margin-right: 5px;
+            font-size: 14px;
+            margin-bottom: 10px;
+            text-shadow: rgba(77, 6, 93, 0.7) 1px 0px 0px, rgba(77, 6, 93, 0.7) 0.540302px 0.841471px 0px, rgba(77,6,93,0.7) -0.416147px 0.909297px 0px, rgba(77,6,93,0.7) -0.989992px 0.14112px 0px, red -0.653644px -0.756802px 0px, red 0.283662px -0.958924px 0px, red 0.96017px -0.279415px 0px;
+            box-shadow: 0 0 3px 0 red;
+            border-radius: 5px;
+            padding: 5px 10px;
+            margin-right: 5px;
+            margin: 5px  5px 5px 0 ;
+          }
+
+          .link-art{
+            @extend  .link-cat ;
+            text-shadow: rgba(93, 58, 6, 0.7) 1px 0px 0px, rgba(93, 58, 6, 0.7) 0.540302px 0.841471px 0px, rgba(93,58,6,0.7) -0.416147px 0.909297px 0px, rgba(93,58,6,0.7) -0.989992px 0.14112px 0px, red -0.653644px -0.756802px 0px, red 0.283662px -0.958924px 0px, red 0.96017px -0.279415px 0px;
+            border-radius: 5px;
+
           }
 
           .cat {

@@ -677,7 +677,7 @@ main.home section#home-slider ul li {
   scroll-snap-align: start;
   padding: 0 15px;
 }
-main.home section#home-slider ul li a {
+main.home section#home-slider ul li > a {
   position: relative;
   display: block;
   width: 144px;
@@ -687,7 +687,7 @@ main.home section#home-slider ul li a {
   overflow: hidden;
   border-radius: 5px;
 }
-main.home section#home-slider ul li a img {
+main.home section#home-slider ul li > a img {
   width: 100%;
   height: 100%;
   opacity: 0;
@@ -695,12 +695,16 @@ main.home section#home-slider ul li a img {
 main.home section#home-slider ul li .inf {
   margin-top: 10px;
 }
+main.home section#home-slider ul li .inf a {
+  text-decoration: none;
+  color: white;
+}
 main.home section#home-slider ul li .inf span {
   display: block;
   text-align: center;
   font-size: 15px;
 }
-main.home section#home-slider ul li.snapped a {
+main.home section#home-slider ul li.snapped > a {
   box-shadow: 0 0 25px 0 #5613AC;
   border-radius: 10px;
 }
@@ -723,17 +727,21 @@ main.home section#home-items ul li {
   align-items: center;
   margin-bottom: 20px;
 }
-main.home section#home-items ul li a {
+main.home section#home-items ul li > a {
   position: relative;
   display: block;
   width: 80px;
   height: 80px;
 }
-main.home section#home-items ul li a img {
+main.home section#home-items ul li > a img {
   width: 100%;
 }
 main.home section#home-items ul li .inf {
   line-height: 25px;
+}
+main.home section#home-items ul li .inf a {
+  text-decoration: none;
+  color: white;
 }
 main.home section#home-items ul li .inf span {
   display: block;
@@ -896,7 +904,7 @@ main.home section#home-items p {
 .main-player footer.player-cmd .cmd span.btn-random {
   background-image: url("../img/icon-random.svg");
 }
-.main-player footer.player-cmd .cmd span.btn-random.random {
+.main-player footer.player-cmd .cmd span.btn-random:active {
   background-image: url("../img/icon-random-c.svg");
 }
 .main-player footer.player-cmd .cmd span.btn-like {
@@ -959,6 +967,8 @@ main.home section#home-items p {
 }
 .main-player footer.player-cmd .line-content .line .time .content .visible {
   top: 0;
+  margin: 0 auto;
+  text-align: center;
 }
 .main-player footer.player-cmd .line-content .line .time .content .next {
   top: 24px;
@@ -1020,12 +1030,29 @@ main.listing .items article .head .info h3 {
   font-weight: 300;
   text-transform: capitalize;
   margin: 0;
+  padding: 5px 0;
 }
 main.listing .items article .head .info a {
   text-decoration: none;
   color: white;
   font-size: 10px;
   display: block;
+}
+main.listing .items article .head .info .link-cat, main.listing .items article .head .info .link-art {
+  display: inline-block;
+  margin-right: 5px;
+  font-size: 14px;
+  margin-bottom: 10px;
+  text-shadow: rgba(77, 6, 93, 0.7) 1px 0px 0px, rgba(77, 6, 93, 0.7) 0.540302px 0.841471px 0px, rgba(77, 6, 93, 0.7) -0.416147px 0.909297px 0px, rgba(77, 6, 93, 0.7) -0.989992px 0.14112px 0px, red -0.653644px -0.756802px 0px, red 0.283662px -0.958924px 0px, red 0.96017px -0.279415px 0px;
+  box-shadow: 0 0 3px 0 red;
+  border-radius: 5px;
+  padding: 5px 10px;
+  margin-right: 5px;
+  margin: 5px 5px 5px 0;
+}
+main.listing .items article .head .info .link-art {
+  text-shadow: rgba(93, 58, 6, 0.7) 1px 0px 0px, rgba(93, 58, 6, 0.7) 0.540302px 0.841471px 0px, rgba(93, 58, 6, 0.7) -0.416147px 0.909297px 0px, rgba(93, 58, 6, 0.7) -0.989992px 0.14112px 0px, red -0.653644px -0.756802px 0px, red 0.283662px -0.958924px 0px, red 0.96017px -0.279415px 0px;
+  border-radius: 5px;
 }
 main.listing .items article .head .info .cat {
   display: block;

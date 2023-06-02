@@ -1,5 +1,5 @@
 //version app
-let appVersion = '1.0.0' ;
+let appVersion = '1.0.1' ;
 console.log(appVersion)
 
 /**

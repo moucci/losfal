@@ -1,3 +1,8 @@
+//version app
+let appVersion = '1.0.1' ;
+console.log(appVersion)
+
+
 /**
  * save original methode fetch
  */
@@ -119,7 +124,9 @@ let loadingData = {
                 $elModel.querySelector('img').onload = callBackImg;
                 $elModel.querySelector('a').setAttribute('href', 'player.html?idm=' + value.id);
                 this.loadArtistInfo(value.artist.replace('/api/artists/', '')).then(info => {
-                    $elModel.querySelector('.name').textContent = info.name;
+                    // $elModel.querySelector('.name').textContent = info.name;
+                    $elModel.querySelector('.inf a').setAttribute('href' , 'artists.html?ida='+info.id);
+                    $elModel.querySelector('.inf a').textContent = info.name;
                 })
                 document.querySelector(idContainer + ' ul').append($elModel);
                 if (document.querySelector(idContainer + ' ul li.model')) {
@@ -296,7 +303,6 @@ let loadingData = {
 
             if (data.tracks.length > 0) {
                 Object.entries(data.tracks).forEach(([key, value]) => {
-
                     loadingData.loadTrack(value.replace('/api/tracks/', '')).then(data => {
                         let $mainContainer = document.querySelector('.listing');
                         $loaderMain.hide();
@@ -311,17 +317,34 @@ let loadingData = {
 
                         //load artists  info
                         if (typ === 'artists') {
-                            //trigger to get info artist
-                            this.loadCatInfo(data.categories[0].replace('/api/categories/', '')).then(info => {
-                                $elModel.querySelector('h3').textContent = info.name;
+
+                            data.categories.forEach((cat , key)=>{
+                                //trigger to get info artist
+                                this.loadCatInfo(cat.replace('/api/categories/', '')).then(info => {
+                                    let $linkCat = document.createElement('a') ;
+                                    $linkCat.textContent = info.name ,
+                                    $linkCat.classList.add('link-cat')
+                                    $linkCat.setAttribute('href' , 'categories.html?ida='+info.id) ;
+                                    $elModel.querySelector('h3').append($linkCat)
+                                    // console.log(info)
+                                });
                             })
+
                         }
 
                         //load cat  info
                         if (typ === 'categories') {
                             //trigger to get info artist
                             this.loadArtistInfo(data.artist.replace('/api/artists/', '')).then(info => {
-                                $elModel.querySelector('h3').textContent = info.name;
+                                // $elModel.querySelector('h3').textContent = info.name;
+                                let $linkArt = document.createElement('a') ;
+                                $linkArt.textContent = info.name ;
+                                $linkArt.classList.add('link-art')
+                                $linkArt.setAttribute('href' , 'artists.html?ida='+info.id) ;
+                                $elModel.querySelector('h3').append($linkArt) ;
+
+                                // debugger ;
+
                             })
                         }
 
@@ -377,6 +400,9 @@ let loadingData = {
             //trigger to get info artist
             this.loadArtistInfo(value.artist.replace('/api/artists/', '')).then(info => {
                 $elModel.querySelector('h3').textContent = info.name;
+                // $elModel.querySelector('.inf a').setAttribute('href' , 'artists.html?ida='+info.id) ;
+                // $elModel.querySelector('.name a').textContent  = info.name; ;
+
             })
 
 
@@ -514,7 +540,7 @@ if (/player.html/.test(window.location.href)) {
     });
 
     //if no idm variable in url show message error ;
-    if (_get['idm'] === undefined || _get['idm'].length === 0 || isNaN(_get['idm']) ) {
+    if (_get['idm'] === undefined || _get['idm'].length === 0 || isNaN(_get['idm'])) {
         let $containerMsgError = document.querySelector('.msg-error');
         $containerMsgError.querySelector('p').textContent = 'aucune musique sélectionnée';
         $containerMsgError.show();
@@ -721,11 +747,11 @@ if (/player.html/.test(window.location.href)) {
                 fetch(pathApi + data.artist)
                     .then(response => response.json())
                     .then(data => {
+                        document.querySelector('.player article > a').setAttribute('href' , 'artists.html?ida='+data.id)
                         document.querySelector('.player article img').setAttribute('src', pathApi + data.picture)
                         document.querySelector('.player article .name').textContent = data.name;
                         document.querySelector('.player article img').show().setOpacity(1);
                         document.querySelector('.player article .name').show().setOpacity(1);
-
                     }).catch(error => {
                     console.log('cannot get info artiste');
                     document.querySelector('.player article img').remove()
@@ -864,27 +890,27 @@ if (/player.html/.test(window.location.href)) {
          * @type {Function}
          */
         random: function (load = null) {
-            if (!load) {
-                this.$playerCmd.querySelector('.btn-random').classList.toggle('random');
-            }
-            if (this.$playerCmd.querySelector('.btn-random').classList.contains('random')) {
-                this.stop();
+            // if (!load) {
+            //     this.$playerCmd.querySelector('.btn-random').classList.toggle('random');
+            // }
+            // if (this.$playerCmd.querySelector('.btn-random').classList.contains('random')) {
+            this.stop();
+            document.querySelector('.main-player').hide();
+            $loaderMain.show();
+            //load track by random
+            loadingData.loadTrack(0, true).then(data => {
                 document.querySelector('.main-player').hide();
-                $loaderMain.show();
-                //load track by random
-                loadingData.loadTrack(0, true).then(data => {
-                    document.querySelector('.main-player').hide();
 
-                    if (Object.keys(data).length > 1) {
-                        let idx = Math.floor(Math.random() * Object.keys(data).length)
-                        this.setPlayer(data[idx]);
-                    } else {
-                        throw 'no data length';
-                    }
-                }).catch(error => {
-                    console.log(error)
-                })
-            }
+                if (Object.keys(data).length > 1) {
+                    let idx = Math.floor(Math.random() * Object.keys(data).length)
+                    this.setPlayer(data[idx]);
+                } else {
+                    throw 'no data length';
+                }
+            }).catch(error => {
+                console.log(error)
+            })
+            // }
 
 
         },
@@ -895,9 +921,12 @@ if (/player.html/.test(window.location.href)) {
          */
         like: function () {
             this.$playerCmd.querySelector('.btn-like').classList.toggle('liked');
+            let url = 'https://music.freefakeapi.io/api/favorites' ;
 
+
+            //add to favories
             if (this.$playerCmd.querySelector('.btn-like').classList.contains('liked')) {
-                let url = 'https://music.freefakeapi.io/api/favorites'
+
                 let header = {
                     method: 'POST',
                     body: JSON.stringify({track: this.idTracks}),
@@ -905,6 +934,19 @@ if (/player.html/.test(window.location.href)) {
                 fetch(url, header).then(response => response.json()).then(data => {
                     if (data.code === 400) {
                         alert("une erreur est survenue lors de l'ajout au favorie")
+                    }
+                }).catch(error => {
+                    console.log(error);
+                });
+            }
+            //delete to favories
+            else{
+                let header = {
+                    method: 'DELETE',
+                }
+                fetch(url+'/'+this.idTracks, header).then(response => response.json()).then(data => {
+                    if (data.code === 400) {
+                        alert("une erreur est survenue lors de la suppression des favories")
                     }
                 }).catch(error => {
                     console.log(error);
