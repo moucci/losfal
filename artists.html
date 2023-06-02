@@ -21,253 +21,76 @@
     <div class="dot">
         <img src="assets/img/three-dot.svg" alt="connexion">
         <div class="submenu_modal">
+            <div class="sub-header">
+                 <span class="btn-prev">
+                         <img src="assets/img/icon-prev.svg" alt="">
+                 </span>
 
-            <span class="btn-prev">
-                <img src="assets/img/icon-prev.svg" alt="">
-            </span>
-            <span class="btn-close">
-                <img src="assets/img/icon-close.svg" alt="">
-            </span>
+                <span class="btn-close">
+                    <img src="assets/img/icon-close.svg" alt="">
+                </span>
+            </div>
 
-            <ul  class="submenu">
+
+            <ul class="submenu">
                 <li><span data-role="arts">List des artistes</span></li>
                 <li><span data-role="cats">Catégories</span></li>
                 <li><a href="favorites.html">Mes favoris</a></li>
-                <li><a href="logout.html">Déconnexion</a></li>
+                <li><a class="logout-btn" href="#">Déconnexion</a></li>
             </ul>
 
             <ul class="list arts">
                 <li class="text-effect-a"><h2>Artistes</h2></li>
-                <li><a  class="text-effect-a" href="artists.html">Cybersdf</a></li>
-                <li><a  class="text-effect-a" href="artists.html">Guazu</a></li>
-                <li><a  class="text-effect-a" href="artists.html">Guifrog</a></li>
-                <li><a  class="text-effect-a" href="artists.html">Jens East</a></li>
-                <li><a  class="text-effect-a" href="artists.html">Meydän</a></li>
-                <li><a  class="text-effect-a" href="artists.html">Myuu</a></li>
-                <li><a  class="text-effect-a" href="artists.html">Niwel</a></li>
-                <li><a  class="text-effect-a" href="artists.html">Nomyn</a></li>
-                <li><a  class="text-effect-a" href="artists.html">Olivaw</a></li>
-                <li><a  class="text-effect-a" href="artists.html">Ona</a></li>
-                <li><a  class="text-effect-a" href="artists.html">Otto Halmen</a></li>
-                <li><a  class="text-effect-a" href="artists.html">Vexento</a></li>
+                <li style="display: none" class=" item model">
+                    <img src="" alt="">
+                    <a class="text-effect-a" href=""></a>
+                </li>
             </ul>
 
             <ul class="list cats">
                 <li class="text-effect-a"><h2>Catégories</h2></li>
-                <li><a  class="text-effect-a" href="categories.html">Hip-Hop</a></li>
-                <li><a  class="text-effect-a" href="categories.html">Pop</a></li>
-                <li><a  class="text-effect-a" href="categories.html">Rock</a></li>
-                <li><a  class="text-effect-a" href="categories.html">Jazz</a></li>
-                <li><a  class="text-effect-a" href="categories.html">Classique</a></li>
-                <li><a  class="text-effect-a" href="categories.html">Dance/Electro</a></li>
-                <li><a  class="text-effect-a" href="categories.html">Rnb</a></li>
-                <li><a  class="text-effect-a" href="categories.html ">Variété Française</a></li>
-                <li><a  class="text-effect-a" href="categories.html">Chillout</a></li>
-                <li><a  class="text-effect-a" href="categories.html">Contemporain</a></li>
-                <li><a  class="text-effect-a" href="categories.html">Médiéval</a></li>
-                <li><a  class="text-effect-a" href="categories.html ">Rap Beat</a></li>
+                <li style="display: none"><a class="text-effect-a" href=""></a></li>
             </ul>
 
         </div>
     </div>
 </header>
 
-<main class="listing">
+<main class="listing hide">
     <section id="artiste">
-        <h1 class="text-effect-a">Name Artists</h1>
+        <h1 class="text-effect-a"></h1>
         <div class="items">
-            <article>
+            <article class="model">
                 <picture>
-                    <img src="assets/img/cover/img-1.jpg" alt="" srcset="">
+                    <a href="">
+                        <img src="" alt="" srcset="">
+                        <span class="imgOnLoad"></span>
+                    </a>
+
                 </picture>
                 <div class="head">
                     <div class="title">
-                        <h2>Hold On</h2>
-                        <span class="duration">Durée <span>2:42</span></span>
+                        <h2 class="text-effect-a">Hold On</h2>
+                        <span class="duration">Durée <span>--:--</span></span>
                     </div>
                     <div class="info">
-                        <h3>Myuu</h3>
-                        <a href="#" target="_blank">http://www.dimahtech.com</a>
-                        <span class="cat">Classique</span>
-                    </div>
-                </div>
-            </article>
-            <article>
-                <picture>
-                    <img src="assets/img/cover/img-1.jpg" alt="" srcset="">
-                </picture>
-                <div class="head">
-                    <div class="title">
-                        <h2>Hold On</h2>
-                        <span class="duration">Durée <span>2:42</span></span>
-                    </div>
-                    <div class="info">
-                        <h3>Myuu</h3>
-                        <a href="#" target="_blank">http://www.dimahtech.com</a>
-                        <span class="cat">Classique</span>
-                    </div>
-                </div>
-            </article>
-            <article>
-                <picture>
-                    <img src="assets/img/cover/img-1.jpg" alt="" srcset="">
-                </picture>
-                <div class="head">
-                    <div class="title">
-                        <h2>Hold On</h2>
-                        <span class="duration">Durée <span>2:42</span></span>
-                    </div>
-                    <div class="info">
-                        <h3>Myuu</h3>
-                        <a href="#" target="_blank">http://www.dimahtech.com</a>
-                        <span class="cat">Classique</span>
-                    </div>
-                </div>
-            </article><article>
-                <picture>
-                    <img src="assets/img/cover/img-1.jpg" alt="" srcset="">
-                </picture>
-                <div class="head">
-                    <div class="title">
-                        <h2>Hold On</h2>
-                        <span class="duration">Durée <span>2:42</span></span>
-                    </div>
-                    <div class="info">
-                        <h3>Myuu</h3>
-                        <a href="#" target="_blank">http://www.dimahtech.com</a>
-                        <span class="cat">Classique</span>
-                    </div>
-                </div>
-            </article>
-            <article>
-                <picture>
-                    <img src="assets/img/cover/img-1.jpg" alt="" srcset="">
-                </picture>
-                <div class="head">
-                    <div class="title">
-                        <h2>Hold On</h2>
-                        <span class="duration">Durée <span>2:42</span></span>
-                    </div>
-                    <div class="info">
-                        <h3>Myuu</h3>
-                        <a href="#" target="_blank">http://www.dimahtech.com</a>
-                        <span class="cat">Classique</span>
-                    </div>
-                </div>
-            </article>
-            <article>
-                <picture>
-                    <img src="assets/img/cover/img-1.jpg" alt="" srcset="">
-                </picture>
-                <div class="head">
-                    <div class="title">
-                        <h2>Hold On</h2>
-                        <span class="duration">Durée <span>2:42</span></span>
-                    </div>
-                    <div class="info">
-                        <h3>Myuu</h3>
-                        <a href="#" target="_blank">http://www.dimahtech.com</a>
-                        <span class="cat">Classique</span>
-                    </div>
-                </div>
-            </article><article>
-                <picture>
-                    <img src="assets/img/cover/img-1.jpg" alt="" srcset="">
-                </picture>
-                <div class="head">
-                    <div class="title">
-                        <h2>Hold On</h2>
-                        <span class="duration">Durée <span>2:42</span></span>
-                    </div>
-                    <div class="info">
-                        <h3>Myuu</h3>
-                        <a href="#" target="_blank">http://www.dimahtech.com</a>
-                        <span class="cat">Classique</span>
-                    </div>
-                </div>
-            </article>
-            <article>
-                <picture>
-                    <img src="assets/img/cover/img-1.jpg" alt="" srcset="">
-                </picture>
-                <div class="head">
-                    <div class="title">
-                        <h2>Hold On</h2>
-                        <span class="duration">Durée <span>2:42</span></span>
-                    </div>
-                    <div class="info">
-                        <h3>Myuu</h3>
-                        <a href="#" target="_blank">http://www.dimahtech.com</a>
-                        <span class="cat">Classique</span>
-                    </div>
-                </div>
-            </article>
-            <article>
-                <picture>
-                    <img src="assets/img/cover/img-1.jpg" alt="" srcset="">
-                </picture>
-                <div class="head">
-                    <div class="title">
-                        <h2>Hold On</h2>
-                        <span class="duration">Durée <span>2:42</span></span>
-                    </div>
-                    <div class="info">
-                        <h3>Myuu</h3>
-                        <a href="#" target="_blank">http://www.dimahtech.com</a>
-                        <span class="cat">Classique</span>
-                    </div>
-                </div>
-            </article><article>
-                <picture>
-                    <img src="assets/img/cover/img-1.jpg" alt="" srcset="">
-                </picture>
-                <div class="head">
-                    <div class="title">
-                        <h2>Hold On</h2>
-                        <span class="duration">Durée <span>2:42</span></span>
-                    </div>
-                    <div class="info">
-                        <h3>Myuu</h3>
-                        <a href="#" target="_blank">http://www.dimahtech.com</a>
-                        <span class="cat">Classique</span>
-                    </div>
-                </div>
-            </article>
-            <article>
-                <picture>
-                    <img src="assets/img/cover/img-1.jpg" alt="" srcset="">
-                </picture>
-                <div class="head">
-                    <div class="title">
-                        <h2>Hold On</h2>
-                        <span class="duration">Durée <span>2:42</span></span>
-                    </div>
-                    <div class="info">
-                        <h3>Myuu</h3>
-                        <a href="#" target="_blank">http://www.dimahtech.com</a>
-                        <span class="cat">Classique</span>
-                    </div>
-                </div>
-            </article>
-            <article>
-                <picture>
-                    <img src="assets/img/cover/img-1.jpg" alt="" srcset="">
-                </picture>
-                <div class="head">
-                    <div class="title">
-                        <h2>Hold On</h2>
-                        <span class="duration">Durée <span>2:42</span></span>
-                    </div>
-                    <div class="info">
-                        <h3>Myuu</h3>
-                        <a href="#" target="_blank">http://www.dimahtech.com</a>
-                        <span class="cat">Classique</span>
+                        <h3></h3>
+                        <a href="#" target="_blank"></a>
+                        <span class="cat hide"></span>
                     </div>
                 </div>
             </article>
         </div>
     </section>
 </main>
+
+<div class="msg-error">
+    <p class="text-effect-a"></p>
+    <a href="home.html" class="text-effect-a">Retour à l'acceuil</a>
+</div>
+<div class="form-loader">
+    <img src="" alt="" srcset="assets/img/icon-loader-music.svg">
+</div>
 
 </body>
 </html>

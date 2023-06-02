@@ -1,3 +1,25 @@
+//version app
+let appVersion = '1.0.0' ;
+console.log(appVersion)
+
+/**
+ * methode to hide html element
+ * add function hide to prototype htmlelement
+ */
+HTMLElement.prototype.hide = function () {
+    this.style.display = 'none';
+    return this
+}
+/**
+ * methode To show html element
+ * add function show to prototype htmlelement
+ * @param param {string}
+ */
+HTMLElement.prototype.show = function (param = 'block') {
+    this.style.display = param;
+    return this
+}
+
 /**
  * container splash screen
  * @type {Element}
@@ -26,7 +48,32 @@ if ($splashScreen) {
                     //redirect to home
                     setTimeout(() => {
                         window.location.href = 'home.html';
-                    }, 1000)
+                    }, 1000);
+
+                } else if (localStorage.remember) {
+                    console.log('auto log');
+
+
+                    $splashScreen.querySelector('img').classList.add('animateToTop');
+                    $splashScreen.querySelector('.logo-txt').classList.add('goToTop');
+
+                    // $splashScreen.remove();
+                    // document.querySelector('main').style.display = 'block';
+                    $splashScreen.querySelector('.goToTop')
+                        .addEventListener('transitionend', function () {
+                            $splashScreen.querySelector('#section-auth').classList.remove('hide');
+                            //decrype data in localstorage
+                            let formStorage = JSON.parse(localStorage.remember);
+                            formStorage = {
+                                email: CryptoJS.AES.decrypt(formStorage.email, '(KZ.kkd%V2YBMaH').toString(CryptoJS.enc.Utf8),
+                                pass: CryptoJS.AES.decrypt(formStorage.pass, '(KZ.kkd%V2YBMaH').toString(CryptoJS.enc.Utf8),
+                            };
+                            //bind data to input
+                            document.querySelector('#form-login #form-email-signin').value = formStorage.email;
+                            document.querySelector('#form-login #form-pass-signin').value = formStorage.pass;
+                            document.querySelector('#form-login button').click();
+                        });
+
 
                 } else {
                     $splashScreen.querySelector('img').classList.add('animateToTop');
@@ -58,7 +105,9 @@ if ($splashScreen) {
 * */
 showCheckBox = (idform = null) => {
 
+
     if (idform === null) return false;
+
 
     //get form
     let fields = document.querySelectorAll("#" + idform + " input ");
@@ -71,17 +120,25 @@ showCheckBox = (idform = null) => {
         if (valid !== 'true' && el.type !== 'checkbox') err++;
     })
 
-    console.log(err)
 
     //IF we have no error , show checkbox
     if (err === 0) {
-        document.querySelector('#' + idform + " .form-check").style.display = 'flex';
+        document.querySelector('#' + idform + " .form-check").show('flex');
+        if (idform === 'form-login') {
+            document.querySelector('#' + idform + " button").classList.add('active')
+            document.querySelector('#' + idform + " button").disabled = false;
+        }
     } else {
-        document.querySelector('#' + idform + " .form-check").style.display = 'none';
+        if (idform === 'form-login') {
+            document.querySelector('#' + idform + " button").classList.remove('active')
+            document.querySelector('#' + idform + " button").disabled = true;
+        }
+        document.querySelector('#' + idform + " .form-check").hide();
     }
 
 
 }
+
 /**
  * get and bind event click on checkBox firl
  * @type {NodeListOf<Element>}
@@ -89,6 +146,10 @@ showCheckBox = (idform = null) => {
 let $elsCheckBox = document.querySelectorAll('input.form-checkbox');
 $elsCheckBox.forEach(($el) => {
     $el.addEventListener('change', (event) => {
+
+
+        if (event.target.closest('form#form-login')) return false;
+
         let $btnSubmit = event.target.closest('form').querySelector('.form-submit');
         if (event.currentTarget.checked) {
             $btnSubmit.classList.add('active')
@@ -108,7 +169,6 @@ let checkInput = (key = null) => {
 
     //if key null
     if (key === null) {
-        console.log('le champ est null , ID du champ : ', key);
         return false;
     }
 
@@ -182,10 +242,18 @@ let form = document.querySelector("form");
 if (form !== null) {
     let input = document.querySelectorAll('input');
     //bind  listener to element
-    input.forEach((el) => {
-        let key = el.getAttribute('name');
-        el.setAttribute('data-valid', "false")
-        el.addEventListener('keyup', () => checkInput(key), false)
+    input.forEach(($el) => {
+        let key = $el.getAttribute('name');
+        $el.setAttribute('data-valid', "false")
+        $el.addEventListener('keyup', () => checkInput(key), false);
+        // Créez un nouvel événement de clic
+        let newEvent = new Event('keyup', {
+            bubbles: true,
+            cancelable: true
+        });
+
+        // trigger event keyup on input
+        $el.dispatchEvent(newEvent);
     });
 }
 
@@ -219,12 +287,12 @@ document.querySelectorAll('.toggle-form')
 //get button form signup
 let $formSignup = document.querySelector("#form-signup ");
 
-//add
+//add event to btn submit for form signup
 $formSignup.querySelector('button.form-submit').addEventListener("click", function (event) {
 
     event.preventDefault();
 
-    $formSignup.style.display = 'none';
+    $formSignup.hide();
 
     document.querySelector('.form-loader').style.display = 'block';
 
@@ -288,7 +356,7 @@ $formSignup.querySelector('button.form-submit').addEventListener("click", functi
                     $formSignup.style.display = 'block';
 
                     //hide loader
-                    document.querySelector('.form-loader').style.display = 'none';
+                    document.querySelector('.form-loader').hide();
 
                 });
             }
@@ -329,7 +397,7 @@ $formSignup.querySelector('button.form-submit').addEventListener("click", functi
 //get button form signin
 let $formSignin = document.querySelector("#form-login");
 
-//add
+//add event to btn submit for form signin
 $formSignin.querySelector('button.form-submit').addEventListener("click", function (event) {
 
     event.preventDefault();
@@ -337,15 +405,16 @@ $formSignin.querySelector('button.form-submit').addEventListener("click", functi
     //set and hide block msg-error
     let $pMsg = $formSignin.querySelector('.msg-error');
     $pMsg.textContent = '';
-    $pMsg.style.display = 'none';
+    $pMsg.hide();
 
+    console.log('send data')
 
     //clear storage
-    localStorage.clear();
+    localStorage.removeItem('token');
 
-    $formSignin.style.display = 'none';
+    $formSignin.hide()
 
-    document.querySelector('.form-loader').style.display = 'block';
+    document.querySelector('.form-loader').show();
 
     let $form = {};
     //get data form
@@ -360,6 +429,7 @@ $formSignin.querySelector('button.form-submit').addEventListener("click", functi
         }
 
     })
+
 
     let pathLogin = 'https://music.freefakeapi.io/api/login';
 
@@ -391,11 +461,21 @@ $formSignin.querySelector('button.form-submit').addEventListener("click", functi
                 $pMsg.textContent = 'Mot de passe ou email incorrecte';
                 $pMsg.style.display = 'block';
                 $formSignin.style.display = 'block';
-                document.querySelector('.form-loader').style.display = 'none';
+                document.querySelector('.form-loader').hide();
             } else {
                 //if all is ok
                 //save token in localstprage
                 localStorage.token = data.token;
+
+                //chiffre data to storage
+                if (document.querySelector('#form-login .form-checkbox').checked) {
+                    let remember = {
+                        email: CryptoJS.AES.encrypt($form.email, '(KZ.kkd%V2YBMaH').toString(),
+                        pass: CryptoJS.AES.encrypt($form.password, '(KZ.kkd%V2YBMaH').toString(),
+                    }
+                    localStorage.remember = JSON.stringify(remember);
+                }
+
                 //redirect to index.html
                 window.location.href = 'home.html';
             }
